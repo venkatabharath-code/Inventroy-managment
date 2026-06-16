@@ -1,0 +1,385 @@
+.asset-dashboard-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.asset-header-btn {
+  background-color: #00A6F4;
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 0 16px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.asset-dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  max-width: 1222.4px;
+  margin: 0 auto;
+}
+
+/* Statistics Cards Section */
+.asset-stats-container {
+  width: 1222.4px;
+  max-width: 100%;
+  height: 149.6px;
+  display: flex;
+  gap: 24px;
+}
+
+.asset-stat-card {
+  flex: 1;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.asset-stat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.color-primary { color: #00A6F4; }
+.color-success { color: #00A63E; }
+.color-warning { color: #F59E0B; }
+.color-critical { color: #E7000B; }
+
+.stat-label {
+  color: #45556C;
+}
+
+.asset-stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0F172B;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.asset-stat-footer {
+  font-size: 13px;
+  color: #45556C;
+}
+
+.text-warning { color: #F59E0B; }
+.text-critical { color: #E7000B; }
+
+
+/* Asset Register Section */
+.asset-register-container {
+  width: 1222.4px;
+  max-width: 100%;
+  height: 537.6px;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.asset-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0F172B;
+  margin-bottom: 24px;
+}
+
+.asset-table-wrapper {
+  flex: 1;
+  overflow: hidden;
+}
+
+.asset-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.asset-table th {
+  text-align: left;
+  font-size: 13px;
+  font-weight: 500;
+  color: #45556C;
+  padding: 0 16px 12px 16px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.asset-row {
+  width: 1172.8px;
+  height: 92.8px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.asset-row:last-child {
+  border-bottom: none;
+}
+
+.asset-row td {
+  padding: 0 16px;
+  vertical-align: middle;
+}
+
+.asset-id-badge {
+  display: inline-flex;
+  padding: 4px 10px;
+  background-color: #F8FAFC;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #45556C;
+}
+
+.asset-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0F172B;
+  margin-bottom: 4px;
+}
+
+.asset-purchased {
+  font-size: 12px;
+  color: #45556C;
+}
+
+.category-badge {
+  display: inline-flex;
+  padding: 4px 12px;
+  background-color: #E0F2FE;
+  color: #00A6F4;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.location-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #45556C;
+}
+
+.location-icon {
+  color: #94A3B8;
+}
+
+.value-cell {
+  font-size: 14px;
+  font-weight: 500;
+  color: #314158;
+}
+
+.warranty-date {
+  font-size: 13px;
+  color: #314158;
+}
+
+.warranty-critical {
+  color: #E7000B;
+  font-weight: 500;
+}
+
+.warranty-days {
+  font-size: 12px;
+  color: #E7000B;
+  margin-top: 2px;
+}
+
+.maintenance-cell {
+  font-size: 13px;
+  color: #45556C;
+}
+
+.status-badge {
+  display: inline-flex;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-operational {
+  background-color: #DCFCE7;
+  color: #00A63E;
+}
+
+.status-maintenance {
+  background-color: #FFF7ED;
+  color: #F59E0B;
+}
+
+.action-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-tool {
+  background: #F1F5F9;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  color: #45556C;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-view {
+  background: #00A6F4;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 0 16px;
+  height: 32px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+/* Upcoming Maintenance Schedule Section */
+.asset-maintenance-container {
+  width: 1222.4px;
+  max-width: 100%;
+  height: 271.2px;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.maintenance-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.maintenance-card {
+  width: 1172.8px;
+  max-width: 100%;
+  height: 82.8px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.maintenance-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.maintenance-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  background-color: #F0F9FF;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00A6F4;
+}
+
+.maintenance-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.maintenance-equipment {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0F172B;
+}
+
+.maintenance-meta {
+  font-size: 13px;
+  color: #45556C;
+}
+
+.btn-schedule {
+  background-color: #F1F5F9;
+  color: #314158;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 0 16px;
+  height: 36px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Responsiveness overrides */
+@media (max-width: 1280px) {
+  .asset-dashboard-content {
+    padding: 16px;
+  }
+  .asset-stats-container {
+    height: auto;
+    flex-wrap: wrap;
+  }
+  .asset-stat-card {
+    min-width: calc(50% - 12px);
+  }
+  .asset-register-container {
+    height: auto;
+    overflow-x: auto;
+  }
+  .asset-table {
+    min-width: 900px;
+  }
+  .asset-row {
+    width: 100%;
+  }
+  .asset-maintenance-container {
+    height: auto;
+  }
+  .maintenance-card {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 16px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .asset-stat-card {
+    min-width: 100%;
+  }
+}

@@ -1,0 +1,24 @@
+.recent-movements-card {
+  width: var(--table-section-width);
+  height: var(--table-section-height);
+}
+
+.recent-movements-table-wrapper {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.qty-positive {
+  color: var(--color-success);
+  font-weight: 500;
+}
+
+.qty-negative {
+  color: var(--color-danger);
+  font-weight: 500;
+}
+
+.qty-neutral {
+  color: var(--text-main);
+  font-weight: 500;
+}

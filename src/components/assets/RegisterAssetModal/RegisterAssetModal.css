@@ -1,0 +1,206 @@
+.ra-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 43, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  backdrop-filter: blur(2px);
+}
+
+.ra-modal-container {
+  width: 768px;
+  max-width: 95vw;
+  max-height: 90vh;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.ra-modal-header {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.ra-modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0F172B;
+  margin: 0;
+}
+
+.ra-modal-close {
+  background: none;
+  border: none;
+  color: #45556C;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.ra-modal-close:hover {
+  background-color: #F1F5F9;
+}
+
+.ra-modal-body {
+  padding: 28px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.ra-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 712px;
+}
+
+.ra-section-last {
+  /* Match the 244px bounding box for Warranty & Maintenance roughly */
+  min-height: 200px;
+}
+
+.ra-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0F172B;
+  margin: 0 0 8px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.ra-form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.ra-input-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ra-full-width {
+  width: 712px;
+  height: 71.6px;
+}
+
+.ra-half-width {
+  width: 348px;
+  height: 71.6px;
+}
+
+.ra-input-group label {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #45556C;
+}
+
+.ra-required {
+  color: #E7000B;
+}
+
+.ra-input-group input {
+  height: 40.8px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-size: 14px;
+  color: #314158;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.ra-input-group input::placeholder {
+  color: #94A3B8;
+}
+
+.ra-input-group input:focus {
+  border-color: #00A6F4;
+  box-shadow: 0 0 0 2px rgba(0, 166, 244, 0.1);
+}
+
+.ra-modal-footer {
+  padding: 20px 28px;
+  display: flex;
+  gap: 16px;
+  border-top: 1px solid #E5E7EB;
+  background-color: #F8FAFC;
+}
+
+.ra-btn-submit {
+  flex: 1;
+  height: 44px;
+  background-color: #00A6F4;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.ra-btn-submit:hover {
+  background-color: #0095DC;
+}
+
+.ra-btn-cancel {
+  width: 100px;
+  height: 44px;
+  background-color: #E2E8F0;
+  color: #45556C;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.ra-btn-cancel:hover {
+  background-color: #CBD5E1;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .ra-modal-body {
+    padding: 20px;
+  }
+  .ra-section, .ra-full-width, .ra-half-width {
+    width: 100%;
+    height: auto;
+  }
+  .ra-form-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .ra-input-group {
+    height: auto;
+    gap: 8px;
+  }
+  .ra-modal-footer {
+    flex-direction: column;
+  }
+  .ra-btn-cancel {
+    width: 100%;
+  }
+}

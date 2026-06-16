@@ -1,0 +1,35 @@
+:root {
+  --bg-main: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --border-color: #E2E8F0;
+  
+  --color-success: #008236;
+  --color-success-bg: #E6F3EA;
+  --color-danger: #EF4444;
+  --color-danger-bg: #FEE2E2;
+  --color-warning: #F59E0B;
+  --color-warning-bg: #FEF3C7;
+  --color-info: #3B82F6;
+  --color-info-bg: #DBEAFE;
+  --color-primary: #00A6F4;
+  --color-primary-hover: #008AE6;
+
+  --text-main: #0F172B;
+  --text-body: #314158;
+  --text-muted: #64748b;
+
+  --font-family-main: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  --dashboard-max-width: 1526px;
+  
+  --sidebar-width: 256px;
+  
+  --header-height: 64px;
+
+  /* We keep some min-heights or min-widths for standard UI components if needed, but rely mostly on flex/grid */
+  --stat-card-min-width: 250px;
+  --category-card-min-width: 200px;
+
+  --border-radius-card: 16.4px;
+  --border-radius-sm: 8px;
+}

@@ -1,0 +1,48 @@
+.category-card {
+  background-color: var(--bg-card);
+  border: 0.8px solid var(--border-color);
+  border-radius: var(--border-radius-card);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 121.59px;
+}
+
+.text-danger {
+  color: var(--color-danger);
+}
+
+.text-success {
+  color: var(--color-success);
+}
+
+.text-warning {
+  color: var(--color-warning);
+}
+
+.category-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.category-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-count {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 4px 0;
+  line-height: 1;
+}
+
+.category-status {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+}

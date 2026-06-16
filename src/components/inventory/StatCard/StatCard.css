@@ -1,0 +1,72 @@
+.stat-card {
+  background-color: var(--bg-card);
+  border: 0.8px solid var(--border-color);
+  border-radius: var(--border-radius-card);
+  padding: 24.8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  min-height: 149.6px;
+}
+
+.stat-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.stat-card-icon-wrapper {
+  font-size: 18px;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.stat-icon-info {
+  color: var(--color-info);
+}
+
+.stat-icon-warning {
+  color: #FF6B00; /* Darker warning orange from reference */
+}
+
+.stat-icon-danger {
+  color: var(--color-danger);
+}
+
+.stat-icon-purple {
+  color: var(--accent, #aa3bff);
+}
+
+.stat-card-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.stat-card-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 4px 0;
+  line-height: 1;
+}
+
+.stat-card-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.stat-card-subtitle.text-purple {
+  color: var(--accent, #aa3bff);
+}
+
+.stat-card-subtitle.text-danger {
+  color: var(--color-danger);
+}
+
+.stat-card-subtitle.text-warning {
+  color: #FF6B00;
+}
