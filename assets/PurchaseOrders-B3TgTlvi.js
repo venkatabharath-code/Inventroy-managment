@@ -1,0 +1,1 @@
+import{t as e}from"./vendor-D_mBWgHa.js";var t=e(),n=()=>(0,t.jsx)(`div`,{children:(0,t.jsx)(`h2`,{children:`Purchase Orders (Coming Soon)`})});export{n as default};
