@@ -1,10 +1,8 @@
 import './UserProfile.css';
-
 const UserProfile = () => {
   return (
     <div className="user-profile">
       <div className="user-avatar">
-        {/* Mock avatar or initials */}
         <span>SJ</span>
       </div>
       <div className="user-info">
@@ -14,5 +12,4 @@ const UserProfile = () => {
     </div>
   );
 };
-
 export default UserProfile;

@@ -10,7 +10,6 @@
   justify-content: center;
   z-index: 1050;
 }
-
 .custom-modal-content {
   background-color: var(--bg-card);
   border-radius: var(--border-radius-card);
@@ -22,7 +21,6 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
-
 .custom-modal-header {
   display: flex;
   justify-content: space-between;
@@ -30,14 +28,12 @@
   padding: 20px 24px;
   border-bottom: 0.8px solid var(--border-color);
 }
-
 .custom-modal-title {
   margin: 0;
   font-size: 18px;
   font-weight: 600;
   color: var(--text-main);
 }
-
 .custom-modal-close {
   background: transparent;
   border: none;
@@ -49,16 +45,13 @@
   justify-content: center;
   padding: 0;
 }
-
 .custom-modal-close:hover {
   color: var(--text-main);
 }
-
 .custom-modal-body {
   padding: 24px;
   overflow-y: auto;
 }
-
 .custom-modal-footer {
   padding: 16px 24px;
   border-top: 0.8px solid var(--border-color);

@@ -1,8 +1,11 @@
 :root {
+  /* Backgrounds & Borders */
   --bg-main: #F8FAFC;
   --bg-card: #FFFFFF;
   --border-color: #E2E8F0;
-  
+  /* Theme Colors */
+  --color-primary: #00A6F4;
+  --color-primary-hover: #008AE6;
   --color-success: #008236;
   --color-success-bg: #E6F3EA;
   --color-danger: #EF4444;
@@ -11,25 +14,18 @@
   --color-warning-bg: #FEF3C7;
   --color-info: #3B82F6;
   --color-info-bg: #DBEAFE;
-  --color-primary: #00A6F4;
-  --color-primary-hover: #008AE6;
-
+  /* Typography */
   --text-main: #0F172B;
   --text-body: #314158;
   --text-muted: #64748b;
-
   --font-family-main: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-
+  /* Layout */
   --dashboard-max-width: 1526px;
-  
   --sidebar-width: 256px;
-  
   --header-height: 64px;
-
-  /* We keep some min-heights or min-widths for standard UI components if needed, but rely mostly on flex/grid */
+  /* Components */
   --stat-card-min-width: 250px;
   --category-card-min-width: 200px;
-
   --border-radius-card: 16.4px;
   --border-radius-sm: 8px;
 }

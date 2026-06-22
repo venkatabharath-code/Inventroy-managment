@@ -1,6 +1,4 @@
-import React from 'react';
 import './PageTitle.css';
-
 const PageTitle = ({ title, subtitle, rightContent }) => {
   return (
     <div className="page-title-container">
@@ -16,5 +14,4 @@ const PageTitle = ({ title, subtitle, rightContent }) => {
     </div>
   );
 };
-
-export default React.memo(PageTitle);
+export default PageTitle;

@@ -1,11 +1,9 @@
-
 export const inventoryStats = [
   { id: 1, title: 'Total SKUs', value: '7', subtitle: 'Items tracked', icon: 'total', type: 'info' },
   { id: 2, title: 'Low Stock', value: '2', subtitle: 'Requires reorder', icon: 'low', type: 'warning' },
   { id: 3, title: 'Out of Stock', value: '1', subtitle: 'Urgent action needed', icon: 'out', type: 'danger' },
   { id: 4, title: 'Expiring Soon', value: '1', subtitle: 'Within 30 days', icon: 'expiring', type: 'purple' }
 ];
-
 export const stockAlerts = [
   {
     id: 1,
@@ -43,7 +41,6 @@ export const stockAlerts = [
     type: 'warning'
   }
 ];
-
 export const stockByCategory = [
   { id: 1, name: 'Medicine', count: 3, status: '2 low stock', statusType: 'danger' },
   { id: 2, name: 'Equipment', count: 1, status: 'All stocked', statusType: 'success' },
@@ -51,7 +48,6 @@ export const stockByCategory = [
   { id: 4, name: 'Surgical', count: 1, status: 'All stocked', statusType: 'success' },
   { id: 5, name: 'Other', count: 0, status: 'All stocked', statusType: 'success' }
 ];
-
 export const recentMovements = [
   {
     id: 1,

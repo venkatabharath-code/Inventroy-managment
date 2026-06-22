@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PageTitle from '../../../components/common/PageTitle/PageTitle';
 import Button from '../../../components/common/Button/Button';
 import DataTable from '../../../components/common/DataTable/DataTable';
 import { RiAddLine, RiFileList2Line, RiTimeLine, RiTruckLine, RiMoneyDollarCircleLine, RiStarFill } from 'react-icons/ri';
 import CreatePurchaseOrderModal from '../../../components/procurement/CreatePurchaseOrderModal/CreatePurchaseOrderModal';
-import './Dashboard.css';
-
 import { procurementService } from '../../../services/procurementService';
 import { useToast } from '../../../context/ToastContext';
-
+import './Dashboard.css';
 const getStatusBadge = (status) => {
   switch (status) {
     case 'pending':
@@ -21,28 +19,37 @@ const getStatusBadge = (status) => {
       return null;
   }
 };
-
-
-
 const Dashboard = () => {
   const { addToast } = useToast();
   const [isPOModalOpen, setIsPOModalOpen] = useState(false);
   const [purchaseOrders, setPurchaseOrders] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const getActionButton = (status) => {
     switch (status) {
       case 'pending':
-        return <button className="btn-action-primary" onClick={() => addToast("Purchase Order Approved Successfully", "success")}>Approve</button>;
+        return (
+          <button 
+            type="button" 
+            className="btn-action-primary" 
+            onClick={() => addToast("Purchase Order Approved Successfully", "success")}>
+            Approve
+          </button>
+        );
       case 'approved':
-        return <button className="btn-action-success" onClick={() => addToast("GRN Processed Successfully", "success")}>Process GRN</button>;
+        return (
+          <button 
+            type="button" 
+            className="btn-action-success" 
+            onClick={() => addToast("GRN Processed Successfully", "success")}>
+            Process GRN
+          </button>
+        );
       case 'delivered':
-        return <button className="btn-action-secondary">View GRN</button>;
+        return <button type="button" className="btn-action-secondary">View GRN</button>;
       default:
         return null;
     }
   };
-
   const columns = [
     { 
       header: 'PO Number', 
@@ -69,7 +76,6 @@ const Dashboard = () => {
       render: (value) => getActionButton(value)
     }
   ];
-
   const loadPurchaseOrders = async () => {
     setLoading(true);
     try {
@@ -81,27 +87,29 @@ const Dashboard = () => {
     }
     setLoading(false);
   };
-
-  React.useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => {
+    // eslint-disable-next-line 
     loadPurchaseOrders();
   }, []);
-
+  const suppliers = [
+    { name: "PharmaCorp Inc.", price: "₹2.5", delivery: "5-7 days", rating: 4.8 },
+    { name: "MediSupply Ltd.", price: "₹2.35", delivery: "7-10 days", rating: 4.6 },
+    { name: "HealthCare Dist.", price: "₹2.75", delivery: "3-5 days", rating: 4.9 }
+  ];
   return (
     <div className="procurement-dashboard-page">
       <PageTitle 
         title="Procurement Management" 
         subtitle="Purchase orders, supplier management & GRN processing"
         rightContent={
-          <Button variant="primary" className="procurement-header-btn" onClick={() => setIsPOModalOpen(true)}>
+          <Button 
+            variant="primary" 
+            className="procurement-header-btn" 
+            onClick={() => setIsPOModalOpen(true)}>
             <RiAddLine size={18} /> Create Purchase Order
           </Button>
-        }
-      />
-      
+        }/>
       <div className="procurement-dashboard-content">
-        
-        {/* Statistics Cards Section */}
         <div className="procurement-stats-container">
           <div className="procurement-stat-card">
             <div className="procurement-stat-header">
@@ -110,15 +118,15 @@ const Dashboard = () => {
             <div className="procurement-stat-value">{purchaseOrders.length}</div>
             <div className="procurement-stat-footer">This month</div>
           </div>
-          
           <div className="procurement-stat-card">
             <div className="procurement-stat-header stat-icon-warning">
               <RiTimeLine size={18} /> Pending Approval
             </div>
-            <div className="procurement-stat-value">{purchaseOrders.filter(po => po.status === 'pending').length}</div>
+            <div className="procurement-stat-value">
+              {purchaseOrders.filter(po => po.status === 'pending').length}
+            </div>
             <div className="procurement-stat-footer text-warning">Requires action</div>
           </div>
-          
           <div className="procurement-stat-card">
             <div className="procurement-stat-header">
               <RiTruckLine size={18} /> In Transit
@@ -126,7 +134,6 @@ const Dashboard = () => {
             <div className="procurement-stat-value">1</div>
             <div className="procurement-stat-footer text-info">Expected soon</div>
           </div>
-          
           <div className="procurement-stat-card">
             <div className="procurement-stat-header stat-icon-success">
               <RiMoneyDollarCircleLine size={18} /> Total Value
@@ -135,26 +142,20 @@ const Dashboard = () => {
             <div className="procurement-stat-footer">This month</div>
           </div>
         </div>
-
-        {/* Purchase Orders Section */}
         <div className="procurement-orders-container">
           <h3 className="procurement-section-title">Purchase Orders</h3>
           {loading ? (
-            <div style={{ padding: '40px', textAlign: 'center', color: '#45556C' }}>Loading purchase orders...</div>
+            <div className="procurement-loading-state">Loading purchase orders...</div>
           ) : (
             <DataTable 
               columns={columns} 
               data={purchaseOrders}
               keyField="id" 
-              itemsPerPage={10} 
-            />
+              itemsPerPage={10} />
           )}
         </div>
-
-        {/* Supplier Comparison Tool */}
         <div className="procurement-supplier-comparison-container">
           <h3 className="procurement-section-title">Supplier Comparison Tool</h3>
-          
           <div className="comparison-inputs-row">
             <div className="comparison-input-group">
               <label>Select Item</label>
@@ -164,84 +165,40 @@ const Dashboard = () => {
               <label>Required Quantity</label>
               <input type="text" defaultValue="1000" />
             </div>
-            <button className="btn-compare">Compare Suppliers</button>
+            <button type="button" className="btn-compare">Compare Suppliers</button>
           </div>
-          
           <div className="supplier-cards-row">
-            {/* PharmaCorp Card */}
-            <div className="supplier-card">
-              <div>
-                <div className="supplier-card-title">PharmaCorp Inc.</div>
-                <div className="supplier-data-row">
-                  <span className="supplier-data-label">Unit Price:</span>
-                  <span className="supplier-data-value">₹2.5</span>
-                </div>
-                <div className="supplier-data-row">
-                  <span className="supplier-data-label">Delivery:</span>
-                  <span className="supplier-data-value">5-7 days</span>
-                </div>
-                <div className="supplier-data-row">
-                  <span className="supplier-data-label">Rating:</span>
-                  <div className="supplier-data-value-rating">
-                    <RiStarFill size={14} />
-                    <span>4.8</span>
+            {suppliers.map((supplier, index) => (
+              <div key={index} className="supplier-card">
+                <div>
+                  <div className="supplier-card-title">{supplier.name}</div>
+                  <div className="supplier-data-row">
+                    <span className="supplier-data-label">Unit Price:</span>
+                    <span className="supplier-data-value">{supplier.price}</span>
+                  </div>
+                  <div className="supplier-data-row">
+                    <span className="supplier-data-label">Delivery:</span>
+                    <span className="supplier-data-value">{supplier.delivery}</span>
+                  </div>
+                  <div className="supplier-data-row">
+                    <span className="supplier-data-label">Rating:</span>
+                    <div className="supplier-data-value-rating">
+                      <RiStarFill size={14} />
+                      <span>{supplier.rating}</span>
+                    </div>
                   </div>
                 </div>
+                <button 
+                  type="button" 
+                  className="btn-select-supplier" 
+                  onClick={() => addToast("Supplier Selected Successfully", "success")}>
+                  Select Supplier
+                </button>
               </div>
-              <button className="btn-select-supplier" onClick={() => addToast("Supplier Selected Successfully", "success")}>Select Supplier</button>
-            </div>
-
-            {/* MediSupply Card */}
-            <div className="supplier-card" style={{ borderColor: 'var(--border-color)' }}>
-              <div>
-                <div className="supplier-card-title">MediSupply Ltd.</div>
-                <div className="supplier-data-row">
-                  <span className="supplier-data-label">Unit Price:</span>
-                  <span className="supplier-data-value">₹2.35</span>
-                </div>
-                <div className="supplier-data-row">
-                  <span className="supplier-data-label">Delivery:</span>
-                  <span className="supplier-data-value">7-10 days</span>
-                </div>
-                <div className="supplier-data-row">
-                  <span className="supplier-data-label">Rating:</span>
-                  <div className="supplier-data-value-rating">
-                    <RiStarFill size={14} />
-                    <span>4.6</span>
-                  </div>
-                </div>
-              </div>
-              <button className="btn-select-supplier" onClick={() => addToast("Supplier Selected Successfully", "success")}>Select Supplier</button>
-            </div>
-
-            {/* HealthCare Dist Card */}
-            <div className="supplier-card" style={{ borderColor: 'var(--border-color)' }}>
-              <div>
-                <div className="supplier-card-title">HealthCare Dist.</div>
-                <div className="supplier-data-row">
-                  <span className="supplier-data-label">Unit Price:</span>
-                  <span className="supplier-data-value">₹2.75</span>
-                </div>
-                <div className="supplier-data-row">
-                  <span className="supplier-data-label">Delivery:</span>
-                  <span className="supplier-data-value">3-5 days</span>
-                </div>
-                <div className="supplier-data-row">
-                  <span className="supplier-data-label">Rating:</span>
-                  <div className="supplier-data-value-rating">
-                    <RiStarFill size={14} />
-                    <span>4.9</span>
-                  </div>
-                </div>
-              </div>
-              <button className="btn-select-supplier" onClick={() => addToast("Supplier Selected Successfully", "success")}>Select Supplier</button>
-            </div>
-            
+            ))}
           </div>
         </div>
-
       </div>
-      
       <CreatePurchaseOrderModal 
         isOpen={isPOModalOpen} 
         onClose={() => setIsPOModalOpen(false)} 
@@ -249,7 +206,6 @@ const Dashboard = () => {
           loadPurchaseOrders();
         }}
       />
-
     </div>
   );
 };

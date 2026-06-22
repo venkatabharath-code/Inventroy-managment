@@ -2,40 +2,33 @@
   display: flex;
   flex-direction: column;
 }
-
 .alert-card-header {
   display: flex;
   align-items: center;
   margin-bottom: 16px;
 }
-
 .alert-header-icon {
   margin-right: 8px;
   font-size: 18px;
   display: flex;
   align-items: center;
 }
-
 .alert-header-title {
   font-size: 15px;
   font-weight: 600;
   margin: 0;
 }
-
 .text-danger {
   color: var(--color-danger);
 }
-
 .text-warning {
   color: var(--color-warning);
 }
-
 .alert-card-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-
 .alert-item {
   display: flex;
   justify-content: space-between;
@@ -46,36 +39,29 @@
   flex-wrap: wrap;
   gap: 12px;
 }
-
 .alert-item-danger {
   background-color: var(--color-danger-bg);
 }
-
 .alert-item-warning {
   background-color: var(--color-warning-bg);
 }
-
 .alert-item-info {
   display: flex;
   flex-direction: column;
 }
-
 .alert-item-name {
   margin: 0 0 6px 0;
   font-size: 15px;
   font-weight: 600;
   color: var(--text-main);
 }
-
 .alert-item-details {
   font-size: 13px;
   color: var(--text-muted);
 }
-
 .alert-item-danger .alert-item-details {
   color: var(--color-danger);
 }
-
 .alert-item-warning .alert-item-details {
   color: var(--color-warning);
 }

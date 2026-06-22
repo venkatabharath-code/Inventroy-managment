@@ -1,6 +1,5 @@
 import React from 'react';
 import './CategoryCard.css';
-
 const CategoryCard = ({ name, count, status, statusType }) => {
   return (
     <div className="category-card">
@@ -14,5 +13,4 @@ const CategoryCard = ({ name, count, status, statusType }) => {
     </div>
   );
 };
-
 export default React.memo(CategoryCard);

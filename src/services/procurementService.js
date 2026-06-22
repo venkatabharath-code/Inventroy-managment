@@ -27,10 +27,7 @@ const initialPurchaseOrders = [
     status: 'delivered',
   }
 ];
-
 const PO_STORAGE_KEY = 'procurement_orders';
-
-/** Safely parse localStorage. Returns null on corruption. */
 function safeParseStorage(key) {
   try {
     const raw = localStorage.getItem(key);
@@ -42,12 +39,10 @@ function safeParseStorage(key) {
     return null;
   }
 }
-
 export const procurementService = {
   async delay(ms = 200) {
     return new Promise(resolve => setTimeout(resolve, ms));
   },
-
   async getPurchaseOrders() {
     await this.delay();
     const parsed = safeParseStorage(PO_STORAGE_KEY);
@@ -55,13 +50,12 @@ export const procurementService = {
     localStorage.setItem(PO_STORAGE_KEY, JSON.stringify(initialPurchaseOrders));
     return initialPurchaseOrders;
   },
-
   async createPurchaseOrder(po) {
     await this.delay();
     const orders = await this.getPurchaseOrders();
-    // BUG-005 fix: use timestamp suffix to guarantee uniqueness across resets
+    // Guarantee uniqueness 
     const year = new Date().getFullYear();
-    const suffix = String(Date.now()).slice(-5); // last 5 digits of timestamp
+    const suffix = String(Date.now()).slice(-5);
     const nextId = `PO-${year}-${suffix}`;
     const newOrder = {
       ...po,

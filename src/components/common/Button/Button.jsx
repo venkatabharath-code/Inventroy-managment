@@ -1,31 +1,24 @@
-import React from 'react';
 import './Button.css';
-
-const Button = ({ 
-  children, 
-  variant = 'primary', 
-  size = 'md', 
-  onClick, 
-  disabled = false, 
-  className = '', 
+const Button = ({
+  children,
+  variant = 'primary',
+  size = 'md',
+  onClick,
+  disabled = false,
+  className = '',
   icon,
-  type = 'button' 
+  type = 'button'
 }) => {
-  const baseClass = 'custom-btn';
-  const variantClass = `btn-${variant}`;
-  const sizeClass = `btn-${size}`;
-  
+  const classes = `custom-btn btn-${variant} btn-${size} ${className}`;
   return (
-    <button 
+    <button
       type={type}
-      className={`${baseClass} ${variantClass} ${sizeClass} ${className}`}
+      className={classes}
       onClick={onClick}
-      disabled={disabled}
-    >
+      disabled={disabled}>
       {icon && <span className="btn-icon">{icon}</span>}
       {children}
     </button>
   );
 };
-
-export default React.memo(Button);
+export default Button;

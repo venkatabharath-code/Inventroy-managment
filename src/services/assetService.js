@@ -48,7 +48,6 @@ const initialAssets = [
     status: 'operational',
   }
 ];
-
 const initialMaintenance = [
   {
     id: 1,
@@ -63,10 +62,7 @@ const initialMaintenance = [
     type: 'Quarterly Preventive'
   }
 ];
-
 const ASSET_STORAGE_KEY = 'asset_register';
-
-/** Safely parse localStorage. Returns null on corruption. */
 function safeParseStorage(key) {
   try {
     const raw = localStorage.getItem(key);
@@ -78,12 +74,10 @@ function safeParseStorage(key) {
     return null;
   }
 }
-
 export const assetService = {
   async delay(ms = 200) {
     return new Promise(resolve => setTimeout(resolve, ms));
   },
-
   async getAssets() {
     await this.delay();
     const parsed = safeParseStorage(ASSET_STORAGE_KEY);
@@ -91,11 +85,10 @@ export const assetService = {
     localStorage.setItem(ASSET_STORAGE_KEY, JSON.stringify(initialAssets));
     return initialAssets;
   },
-
   async registerAsset(asset) {
     await this.delay();
     const assets = await this.getAssets();
-    // BUG-004 fix: always pad to 3 digits (handles 10+ assets correctly)
+    // Always pad to 3 digits
     const nextId = `AST${String(assets.length + 1).padStart(3, '0')}`;
     const newAsset = {
       ...asset,
@@ -107,7 +100,6 @@ export const assetService = {
     localStorage.setItem(ASSET_STORAGE_KEY, JSON.stringify(updatedAssets));
     return newAsset;
   },
-
   async getMaintenanceSchedule() {
     await this.delay(100);
     return initialMaintenance;

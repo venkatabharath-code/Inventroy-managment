@@ -1,6 +1,4 @@
-import React from 'react';
 import './Card.css';
-
 const Card = ({ children, className = '', noPadding = false, title }) => {
   return (
     <div className={`custom-card ${className}`}>
@@ -15,5 +13,4 @@ const Card = ({ children, className = '', noPadding = false, title }) => {
     </div>
   );
 };
-
-export default React.memo(Card);
+export default Card;

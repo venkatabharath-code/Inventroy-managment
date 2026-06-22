@@ -1,4 +1,3 @@
-import React from 'react';
 import { RiBox3Line, RiAlertLine, RiCalendarEventLine } from 'react-icons/ri';
 import { FiTrendingDown } from 'react-icons/fi';
 import './StatCard.css';
@@ -9,8 +8,13 @@ const iconMap = {
   out: <FiTrendingDown />,
   expiring: <RiCalendarEventLine />
 };
-
+const subtitleColorMap = {
+  purple: 'text-purple',
+  danger: 'text-danger',
+  warning: 'text-warning'
+};
 const StatCard = ({ title, value, subtitle, icon, type }) => {
+  const subtitleClass = subtitleColorMap[type] || '';
   return (
     <div className={`stat-card stat-card-${type}`}>
       <div className="stat-card-header">
@@ -21,10 +25,9 @@ const StatCard = ({ title, value, subtitle, icon, type }) => {
       </div>
       <div className="stat-card-body">
         <h3 className="stat-card-value">{value}</h3>
-        <p className={`stat-card-subtitle ${type === 'purple' ? 'text-purple' : ''} ${type === 'danger' ? 'text-danger' : ''} ${type === 'warning' ? 'text-warning' : ''}`}>{subtitle}</p>
+        <p className={`stat-card-subtitle ${subtitleClass}`}>{subtitle}</p>
       </div>
     </div>
   );
 };
-
-export default React.memo(StatCard);
+export default StatCard;

@@ -11,7 +11,7 @@ export const DESIGN_TOKENS = {
     borderRight: '0.8px solid #E2E8F0'
   },
   header: {
-    width: '1270.4px', // 1526 - 256
+    width: '1270.4px',
     height: '64px',
     background: '#FFFFFF',
     borderBottom: '0.8px solid #E2E8F0'

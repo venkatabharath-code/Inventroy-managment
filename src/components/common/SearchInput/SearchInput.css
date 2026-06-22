@@ -7,14 +7,12 @@
   border: 1px solid var(--border-color);
   width: 100%;
 }
-
 .custom-search-input-wrapper .search-icon {
   color: var(--text-muted);
   margin-right: 8px;
   font-size: 18px;
   flex-shrink: 0;
 }
-
 .custom-search-input {
   border: none;
   background: transparent;
@@ -23,7 +21,6 @@
   width: 100%;
   color: var(--text-main);
 }
-
 .custom-search-input::placeholder {
   color: #94a3b8;
 }

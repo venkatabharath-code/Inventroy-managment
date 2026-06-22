@@ -5,7 +5,6 @@
   width: 100%;
   padding-bottom: 40px;
 }
-
 .asset-header-btn {
   background-color: #00A6F4;
   color: #FFFFFF;
@@ -20,7 +19,6 @@
   border: none;
   cursor: pointer;
 }
-
 .asset-dashboard-content {
   display: flex;
   flex-direction: column;
@@ -29,8 +27,6 @@
   max-width: 1222.4px;
   margin: 0 auto;
 }
-
-/* Statistics Cards Section */
 .asset-stats-container {
   width: 1222.4px;
   max-width: 100%;
@@ -38,7 +34,6 @@
   display: flex;
   gap: 24px;
 }
-
 .asset-stat-card {
   flex: 1;
   background-color: #FFFFFF;
@@ -51,7 +46,6 @@
   height: 100%;
   box-sizing: border-box;
 }
-
 .asset-stat-header {
   display: flex;
   align-items: center;
@@ -60,16 +54,13 @@
   font-weight: 500;
   margin-bottom: 12px;
 }
-
 .color-primary { color: #00A6F4; }
 .color-success { color: #00A63E; }
 .color-warning { color: #F59E0B; }
 .color-critical { color: #E7000B; }
-
 .stat-label {
   color: #45556C;
 }
-
 .asset-stat-value {
   font-size: 28px;
   font-weight: 700;
@@ -77,17 +68,12 @@
   margin-bottom: 8px;
   line-height: 1;
 }
-
 .asset-stat-footer {
   font-size: 13px;
   color: #45556C;
 }
-
 .text-warning { color: #F59E0B; }
 .text-critical { color: #E7000B; }
-
-
-/* Asset Register Section */
 .asset-register-container {
   width: 1222.4px;
   max-width: 100%;
@@ -100,24 +86,20 @@
   display: flex;
   flex-direction: column;
 }
-
 .asset-section-title {
   font-size: 18px;
   font-weight: 600;
   color: #0F172B;
   margin-bottom: 24px;
 }
-
 .asset-table-wrapper {
   flex: 1;
   overflow: hidden;
 }
-
 .asset-table {
   width: 100%;
   border-collapse: collapse;
 }
-
 .asset-table th {
   text-align: left;
   font-size: 13px;
@@ -126,22 +108,18 @@
   padding: 0 16px 12px 16px;
   border-bottom: 1px solid #E5E7EB;
 }
-
 .asset-row {
   width: 1172.8px;
   height: 92.8px;
   border-bottom: 1px solid #E5E7EB;
 }
-
 .asset-row:last-child {
   border-bottom: none;
 }
-
 .asset-row td {
   padding: 0 16px;
   vertical-align: middle;
 }
-
 .asset-id-badge {
   display: inline-flex;
   padding: 4px 10px;
@@ -151,19 +129,16 @@
   font-weight: 500;
   color: #45556C;
 }
-
 .asset-name {
   font-size: 14px;
   font-weight: 500;
   color: #0F172B;
   margin-bottom: 4px;
 }
-
 .asset-purchased {
   font-size: 12px;
   color: #45556C;
 }
-
 .category-badge {
   display: inline-flex;
   padding: 4px 12px;
@@ -173,7 +148,6 @@
   font-size: 12px;
   font-weight: 500;
 }
-
 .location-cell {
   display: flex;
   align-items: center;
@@ -181,38 +155,31 @@
   font-size: 13px;
   color: #45556C;
 }
-
 .location-icon {
   color: #94A3B8;
 }
-
 .value-cell {
   font-size: 14px;
   font-weight: 500;
   color: #314158;
 }
-
 .warranty-date {
   font-size: 13px;
   color: #314158;
 }
-
 .warranty-critical {
   color: #E7000B;
   font-weight: 500;
 }
-
 .warranty-days {
   font-size: 12px;
   color: #E7000B;
   margin-top: 2px;
 }
-
 .maintenance-cell {
   font-size: 13px;
   color: #45556C;
 }
-
 .status-badge {
   display: inline-flex;
   padding: 4px 12px;
@@ -221,23 +188,19 @@
   font-weight: 500;
   text-transform: capitalize;
 }
-
 .status-operational {
   background-color: #DCFCE7;
   color: #00A63E;
 }
-
 .status-maintenance {
   background-color: #FFF7ED;
   color: #F59E0B;
 }
-
 .action-cell {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-
 .btn-tool {
   background: #F1F5F9;
   border: 1px solid #E5E7EB;
@@ -250,7 +213,6 @@
   justify-content: center;
   cursor: pointer;
 }
-
 .btn-view {
   background: #00A6F4;
   color: #FFFFFF;
@@ -262,9 +224,6 @@
   font-weight: 500;
   cursor: pointer;
 }
-
-
-/* Upcoming Maintenance Schedule Section */
 .asset-maintenance-container {
   width: 1222.4px;
   max-width: 100%;
@@ -277,13 +236,11 @@
   display: flex;
   flex-direction: column;
 }
-
 .maintenance-list {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
 .maintenance-card {
   width: 1172.8px;
   max-width: 100%;
@@ -296,13 +253,11 @@
   justify-content: space-between;
   box-sizing: border-box;
 }
-
 .maintenance-info {
   display: flex;
   align-items: center;
   gap: 16px;
 }
-
 .maintenance-icon-wrapper {
   width: 48px;
   height: 48px;
@@ -313,24 +268,20 @@
   justify-content: center;
   color: #00A6F4;
 }
-
 .maintenance-details {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-
 .maintenance-equipment {
   font-size: 15px;
   font-weight: 600;
   color: #0F172B;
 }
-
 .maintenance-meta {
   font-size: 13px;
   color: #45556C;
 }
-
 .btn-schedule {
   background-color: #F1F5F9;
   color: #314158;
@@ -342,8 +293,16 @@
   font-weight: 500;
   cursor: pointer;
 }
-
-/* Responsiveness overrides */
+.asset-loading-row {
+  padding: 40px;
+  text-align: center;
+  color: #45556C;
+}
+.asset-loading-schedule {
+  padding: 20px;
+  text-align: center;
+  color: #45556C;
+}
 @media (max-width: 1280px) {
   .asset-dashboard-content {
     padding: 16px;
@@ -377,7 +336,6 @@
     gap: 16px;
   }
 }
-
 @media (max-width: 768px) {
   .asset-stat-card {
     min-width: 100%;

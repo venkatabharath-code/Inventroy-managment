@@ -3,10 +3,8 @@ import Card from '../../common/Card/Card';
 import Button from '../../common/Button/Button';
 import { RiAlertLine, RiTimeLine } from 'react-icons/ri';
 import './AlertCard.css';
-
 const AlertCard = ({ title, items, type }) => {
   const isDanger = type === 'danger';
-  
   return (
     <Card className="alert-card h-100">
       <div className={`alert-card-header text-${type}`}>
@@ -15,7 +13,6 @@ const AlertCard = ({ title, items, type }) => {
         </span>
         <h5 className="alert-header-title">{title}</h5>
       </div>
-      
       <div className="alert-card-list">
         {items.map((item) => (
           <div key={item.id} className={`alert-item alert-item-${type}`}>
@@ -31,8 +28,7 @@ const AlertCard = ({ title, items, type }) => {
             <div className="alert-item-action">
               <Button 
                 variant={isDanger ? 'danger' : 'warning'} 
-                size="sm"
-              >
+                size="sm">
                 {item.actionType}
               </Button>
             </div>
@@ -42,5 +38,4 @@ const AlertCard = ({ title, items, type }) => {
     </Card>
   );
 };
-
 export default React.memo(AlertCard);

@@ -1,7 +1,6 @@
 import { HashRouter } from 'react-router-dom';
 import AppRoutes from './routes/AppRoutes';
 import { ToastProvider } from './context/ToastContext';
-
 function App() {
   return (
     <HashRouter>
@@ -11,5 +10,4 @@ function App() {
     </HashRouter>
   );
 }
-
 export default App;

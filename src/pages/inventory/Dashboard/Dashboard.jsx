@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import StatCard from '../../../components/inventory/StatCard/StatCard';
 import AlertCard from '../../../components/inventory/AlertCard/AlertCard';
 import CategoryCard from '../../../components/inventory/CategoryCard/CategoryCard';
@@ -12,17 +12,14 @@ import InventorySettingsModal from '../../../components/inventory/InventorySetti
 import { useToast } from '../../../context/ToastContext';
 import { RiSettings3Line, RiAddLine } from 'react-icons/ri';
 import './Dashboard.css';
-
 const Dashboard = () => {
   const { addToast } = useToast();
   const [isAddStockModalOpen, setIsAddStockModalOpen] = useState(false);
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
-
   const [stats, setStats] = useState([]);
   const [alerts, setAlerts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [movements, setMovements] = useState([]);
-
   const loadDashboardData = async () => {
     try {
       const [s, a, c, m] = await Promise.all([
@@ -31,7 +28,6 @@ const Dashboard = () => {
         inventoryService.getStockByCategory(),
         inventoryService.getRecentMovements()
       ]);
-      
       setStats(s || []);
       setAlerts(a || []);
       setCategories(c || []);
@@ -44,27 +40,34 @@ const Dashboard = () => {
       setMovements([]);
     }
   };
-
-  React.useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     loadDashboardData();
   }, []);
-
-  const headerActions = React.useMemo(() => (
+  const headerActions = (
     <>
-      <Button variant="secondary" icon={<RiSettings3Line />} onClick={() => setIsSettingsModalOpen(true)} data-testid="btn-settings">Settings</Button>
-      <Button variant="primary" icon={<RiAddLine />} onClick={() => setIsAddStockModalOpen(true)} data-testid="btn-add-stock">Add Stock Item</Button>
+      <Button 
+        variant="secondary" 
+        icon={<RiSettings3Line />} 
+        onClick={() => setIsSettingsModalOpen(true)} 
+        data-testid="btn-settings">
+        Settings
+      </Button>
+      <Button 
+        variant="primary" 
+        icon={<RiAddLine />} 
+        onClick={() => setIsAddStockModalOpen(true)} 
+        data-testid="btn-add-stock">
+        Add Stock Item
+      </Button>
     </>
-  ), []);
-
+  );
   return (
     <div className="dashboard-page">
       <PageTitle 
         title="Inventory Management" 
         subtitle="Multi-location stock control & procurement"
-        rightContent={headerActions}
-      />
-      
+        rightContent={headerActions}/>
       <div className="stats-row" data-testid="stats-row">
         {stats.map(stat => (
           <StatCard
@@ -74,26 +77,22 @@ const Dashboard = () => {
             subtitle={stat.subtitle}
             icon={stat.icon}
             type={stat.type}
-            data-testid={`stat-${stat.id}`}
-          />
+            data-testid={`stat-${stat.id}`}/>
         ))}
       </div>
-
       <div className="alerts-section">
         {alerts.map(alert => (
           <div key={alert.id} className="alert-wrapper">
             <AlertCard 
               title={alert.title}
               items={alert.items}
-              type={alert.type}
-            />
+              type={alert.type}/>
           </div>
         ))}
       </div>
-
       <div className="category-section">
         <Card noPadding={false}>
-          <h5 className="section-title" style={{ marginTop: '-4px', marginBottom: '20px' }}>Stock by Category</h5>
+          <h5 className="section-title category-title">Stock by Category</h5>
           <div className="category-row">
             {categories.map(category => (
               <CategoryCard 
@@ -101,8 +100,7 @@ const Dashboard = () => {
                 name={category.name}
                 count={category.count}
                 status={category.status}
-                statusType={category.statusType}
-              />
+                statusType={category.statusType}/>
             ))}
           </div>
         </Card>
@@ -113,27 +111,20 @@ const Dashboard = () => {
           </Card>
         </div>
       </div>
-      
       <AddStockModal
         isOpen={isAddStockModalOpen}
         onClose={() => setIsAddStockModalOpen(false)}
         onSuccess={() => {
           loadDashboardData();
           addToast('Stock Added Successfully', 'success');
-        }}
-      />
-      
+        }}/>
       <InventorySettingsModal
         isOpen={isSettingsModalOpen}
         onClose={() => setIsSettingsModalOpen(false)}
         onSuccess={() => {
           addToast('Settings Saved Successfully', 'success');
-        }}
-      />
-
-
+        }}/>
     </div>
   );
 };
-
-export default React.memo(Dashboard);
+export default Dashboard;

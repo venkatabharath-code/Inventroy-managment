@@ -3,7 +3,6 @@ import { RiCloseLine } from 'react-icons/ri';
 import { settingsService } from '../../../services/settingsService';
 import { useToast } from '../../../context/ToastContext';
 import './InventorySettingsModal.css';
-
 const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
   const { addToast } = useToast();
   const [formData, setFormData] = useState({
@@ -15,12 +14,10 @@ const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
     poApprovalRequiredAbove: '50000',
     stockAdjustmentApproval: 'Role Based'
   });
-
   const [categories, setCategories] = useState([
     'Medicine', 'Equipment', 'Consumable', 'Surgical', 'Other'
   ]);
   const [newCategory, setNewCategory] = useState('');
-
   const loadSettings = async () => {
     try {
       const settings = await settingsService.getSettings();
@@ -32,16 +29,13 @@ const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
       console.error('Failed to load settings:', error);
     }
   };
-
   React.useEffect(() => {
     if (isOpen) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+      // eslint-disable-next-line 
       loadSettings();
     }
   }, [isOpen]);
-
   if (!isOpen) return null;
-
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({
@@ -49,27 +43,22 @@ const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
       [name]: type === 'checkbox' ? checked : value
     }));
   };
-
   const handleAddCategory = () => {
     if (newCategory.trim() && !categories.includes(newCategory.trim())) {
       setCategories([...categories, newCategory.trim()]);
       setNewCategory('');
     }
   };
-
   const handleRemoveCategory = (categoryToRemove) => {
     setCategories(categories.filter(cat => cat !== categoryToRemove));
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     try {
       const payload = {
         ...formData,
         categories
       };
-
       await settingsService.saveSettings(payload);
       addToast('Settings Saved Successfully', 'success');
       if (onSuccess) onSuccess();
@@ -78,11 +67,9 @@ const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
       console.error('Failed to save settings:', error);
     }
   };
-
   return (
     <div className="settings-overlay" onClick={onClose}>
-      <form className="settings-modal" onClick={e => e.stopPropagation()} onSubmit={handleSubmit}>
-        
+      <form className="settings-modal" onClick={e => e.stopPropagation()} onSubmit={handleSubmit}>    
         {/* Header */}
         <div className="settings-header">
           <h2>Inventory Settings</h2>
@@ -90,39 +77,32 @@ const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
             <RiCloseLine />
           </button>
         </div>
-
         {/* Body */}
         <div className="settings-body">
-          
           {/* Section 1: Reorder Alert Settings */}
           <div className="settings-section">
             <h3 className="settings-section-title">Reorder Alert Settings</h3>
             <div className="alert-cards-container">
-              
               <div className="settings-alert-card">
                 <div className="settings-alert-card-info">
                   <span className="settings-alert-card-title">Low Stock Email Alerts</span>
                   <span className="settings-alert-card-desc">Send email when items reach minimum stock level</span>
                 </div>
               </div>
-
               <div className="settings-alert-card">
                 <div className="settings-alert-card-info">
                   <span className="settings-alert-card-title">Expiry Alerts</span>
                   <span className="settings-alert-card-desc">Alert when items are within 30 days of expiry</span>
                 </div>
               </div>
-
               <div className="settings-alert-card">
                 <div className="settings-alert-card-info">
                   <span className="settings-alert-card-title">Auto-generate PO Suggestions</span>
                   <span className="settings-alert-card-desc">Automatically suggest purchase orders for low stock items</span>
                 </div>
               </div>
-
             </div>
           </div>
-
           {/* Section 2: Default Units & Categories */}
           <div className="settings-section">
             <h3 className="settings-section-title">Default Units & Categories</h3>
@@ -134,8 +114,7 @@ const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
                   name="defaultStockUnit"
                   value={formData.defaultStockUnit}
                   onChange={handleInputChange}
-                  className="settings-input" 
-                />
+                  className="settings-input" />
               </div>
               <div className="settings-form-field">
                 <label className="settings-form-label">Low Stock Threshold (%)</label>
@@ -144,11 +123,9 @@ const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
                   name="lowStockThreshold"
                   value={formData.lowStockThreshold}
                   onChange={handleInputChange}
-                  className="settings-input" 
-                />
+                  className="settings-input" />
               </div>
             </div>
-
             <div className="settings-form-field full-width" style={{ height: 'auto', marginTop: '16px' }}>
               <label className="settings-form-label">Manage Categories</label>
               <div className="manage-categories-input-group">
@@ -163,8 +140,7 @@ const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
                       e.preventDefault();
                       handleAddCategory();
                     }
-                  }}
-                />
+                  }}/>
                 <button type="button" className="btn-add-category" onClick={handleAddCategory}>+ Add</button>
               </div>
               <div className="category-chips">
@@ -179,7 +155,6 @@ const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
               </div>
             </div>
           </div>
-
           {/* Section 3: Approval Workflows */}
           <div className="settings-section">
             <h3 className="settings-section-title">Approval Workflows</h3>
@@ -191,8 +166,7 @@ const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
                   name="poApprovalRequiredAbove"
                   value={formData.poApprovalRequiredAbove}
                   onChange={handleInputChange}
-                  className="settings-input" 
-                />
+                  className="settings-input" />
               </div>
               <div className="settings-form-field">
                 <label className="settings-form-label">Stock Adjustment Approval</label>
@@ -201,14 +175,11 @@ const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
                   name="stockAdjustmentApproval"
                   value={formData.stockAdjustmentApproval}
                   onChange={handleInputChange}
-                  className="settings-input" 
-                />
+                  className="settings-input" />
               </div>
             </div>
           </div>
-
         </div>
-
         {/* Footer */}
         <div className="settings-footer">
           <div className="settings-footer-container">
@@ -216,10 +187,8 @@ const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
             <button type="button" className="btn-settings-cancel" onClick={onClose}>Cancel</button>
           </div>
         </div>
-
       </form>
     </div>
   );
 };
-
 export default InventorySettingsModal;

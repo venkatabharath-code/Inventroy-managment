@@ -7,7 +7,6 @@
   flex-direction: column;
   flex-shrink: 0;
 }
-
 .sidebar-brand {
   height: var(--header-height);
   display: flex;
@@ -16,22 +15,27 @@
   padding: 0 16px 0 24px;
   border-bottom: var(--border-color) solid 0.8px;
 }
-
 .brand-logo-container {
   display: flex;
   align-items: center;
 }
-
 .brand-icon-wrapper {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #00B4D8 0%, #00C9A7 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 201, 167, 0.2);
   margin-right: 12px;
+  flex-shrink: 0;
 }
-
 .brand-text {
   font-weight: 700;
   font-size: 16px;
   color: var(--text-main);
 }
-
 .sidebar-nav {
   flex: 1;
   padding: 24px 0;
@@ -39,7 +43,6 @@
   flex-direction: column;
   gap: 8px;
 }
-
 .nav-item {
   display: flex;
   align-items: center;
@@ -51,18 +54,15 @@
   position: relative;
   text-decoration: none;
 }
-
 .nav-item:hover {
   background-color: var(--bg-main);
   color: var(--text-main);
 }
-
 .nav-item.active {
   background-color: #EBF5FF;
   color: var(--color-primary);
   font-weight: 600;
 }
-
 .nav-item.active::before {
   content: '';
   position: absolute;
@@ -73,23 +73,19 @@
   background-color: var(--color-primary);
   border-radius: 0 4px 4px 0;
 }
-
 .nav-item.active .nav-icon {
   color: var(--color-primary);
 }
-
 .nav-icon {
   font-size: 20px;
   margin-right: 12px;
   display: flex;
   align-items: center;
 }
-
 .sidebar-footer {
   padding: 16px;
   border-top: var(--border-color) solid 0.8px;
 }
-
 .logout-btn {
   display: flex;
   align-items: center;
@@ -106,17 +102,14 @@
   transition: all 0.2s ease;
   margin-top: 16px;
 }
-
 .logout-btn:hover {
   background-color: var(--bg-main);
   color: var(--text-main);
 }
-
 .logout-icon {
   margin-right: 8px;
   font-size: 18px;
 }
-
 .sidebar-close-btn {
   display: none;
   background: transparent;
@@ -126,7 +119,6 @@
   cursor: pointer;
   padding: 4px;
 }
-
 @media (max-width: 1024px) {
   .sidebar {
     position: fixed;
@@ -137,11 +129,9 @@
     transition: left 0.3s ease;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   }
-
   .sidebar.sidebar-open {
     left: 0;
   }
-
   .sidebar-close-btn {
     display: flex;
     align-items: center;

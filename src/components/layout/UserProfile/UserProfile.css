@@ -3,7 +3,6 @@
   align-items: center;
   padding: 8px 0;
 }
-
 .user-avatar {
   width: 40px;
   height: 40px;
@@ -18,19 +17,16 @@
   margin-right: 12px;
   flex-shrink: 0;
 }
-
 .user-info {
   display: flex;
   flex-direction: column;
 }
-
 .user-name {
   margin: 0;
   font-size: 14px;
   font-weight: 600;
   color: var(--text-main);
 }
-
 .user-role {
   font-size: 12px;
   color: var(--text-muted);

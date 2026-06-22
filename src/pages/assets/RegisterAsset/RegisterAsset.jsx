@@ -1,4 +1,8 @@
-
-const RegisterAsset = () => <div><h2>Register Asset (Coming Soon)</h2></div>;
-
+const RegisterAsset = () => {
+  return (
+    <div>
+      <h2>Register Asset (Coming Soon)</h2>
+    </div>
+  );
+};
 export default RegisterAsset;

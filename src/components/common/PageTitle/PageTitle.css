@@ -4,25 +4,21 @@
   align-items: flex-start;
   margin-bottom: 24px;
 }
-
 .page-title-text {
   display: flex;
   flex-direction: column;
 }
-
 .page-title-heading {
   font-size: 24px;
   font-weight: 700;
   color: var(--text-main);
   margin: 0 0 4px 0;
 }
-
 .page-title-subtitle {
   font-size: 14px;
   color: var(--text-muted);
   margin: 0;
 }
-
 .page-title-actions {
   display: flex;
   gap: 12px;

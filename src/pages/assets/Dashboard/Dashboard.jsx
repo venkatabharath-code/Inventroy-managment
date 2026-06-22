@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import PageTitle from '../../../components/common/PageTitle/PageTitle';
 import Button from '../../../components/common/Button/Button';
 import { 
@@ -9,18 +9,15 @@ import {
 } from 'react-icons/ri';
 import { FiTool, FiDollarSign, FiAlertTriangle } from 'react-icons/fi';
 import RegisterAssetModal from '../../../components/assets/RegisterAssetModal/RegisterAssetModal';
-import './Dashboard.css';
-
 import { assetService } from '../../../services/assetService';
 import { useToast } from '../../../context/ToastContext';
-
+import './Dashboard.css';
 const Dashboard = () => {
   const { addToast } = useToast();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [assets, setAssets] = useState([]);
   const [maintenance, setMaintenance] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const loadData = async () => {
     setLoading(true);
     try {
@@ -37,13 +34,11 @@ const Dashboard = () => {
     }
     setLoading(false);
   };
-
-  React.useEffect(() => {
+  useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     loadData();
   }, []);
-
-  const totalValue = React.useMemo(() => {
+  const totalValue = useMemo(() => {
     let total = 0;
     assets.forEach(asset => {
       let valStr = asset.value ? String(asset.value).toUpperCase().replace(/[^0-9.LCR]/g, '') : '0';
@@ -55,7 +50,6 @@ const Dashboard = () => {
         total += parseFloat(valStr) || 0;
       }
     });
-
     if (total >= 10000000) {
       return `₹${(total / 10000000).toFixed(1)}Cr`;
     } else if (total >= 100000) {
@@ -63,22 +57,21 @@ const Dashboard = () => {
     }
     return `₹${total.toLocaleString('en-IN')}`;
   }, [assets]);
-
   return (
     <div className="asset-dashboard-page">
       <PageTitle 
         title="Asset Management" 
         subtitle="High-value equipment tracking, maintenance & warranty"
         rightContent={
-          <Button variant="primary" className="asset-header-btn" onClick={() => setIsModalOpen(true)}>
-            <RiAddLine size={18} /> Register Asset
+          <Button 
+            variant="primary" 
+            className="asset-header-btn" 
+            onClick={() => setIsModalOpen(true)}>
+            <RiAddLine size={18} /> 
+            Register Asset
           </Button>
-        }
-      />
-      
+        }/>
       <div className="asset-dashboard-content">
-        
-        {/* Statistics Cards Section */}
         <div className="asset-stats-container">
           <div className="asset-stat-card">
             <div className="asset-stat-header color-primary">
@@ -87,7 +80,6 @@ const Dashboard = () => {
             <div className="asset-stat-value">{assets.length}</div>
             <div className="asset-stat-footer">Registered</div>
           </div>
-          
           <div className="asset-stat-card">
             <div className="asset-stat-header color-success">
               <FiDollarSign size={18} /> <span className="stat-label">Total Value</span>
@@ -95,7 +87,6 @@ const Dashboard = () => {
             <div className="asset-stat-value">{totalValue}</div>
             <div className="asset-stat-footer">Asset value</div>
           </div>
-          
           <div className="asset-stat-card">
             <div className="asset-stat-header color-warning">
               <FiTool size={18} /> <span className="stat-label">Under Maintenance</span>
@@ -103,7 +94,6 @@ const Dashboard = () => {
             <div className="asset-stat-value">{assets.filter(a => a.status === 'maintenance').length}</div>
             <div className="asset-stat-footer text-warning">In service</div>
           </div>
-          
           <div className="asset-stat-card">
             <div className="asset-stat-header color-critical">
               <FiAlertTriangle size={18} /> <span className="stat-label">Warranty Expiring</span>
@@ -112,11 +102,8 @@ const Dashboard = () => {
             <div className="asset-stat-footer text-critical">Within 6 months</div>
           </div>
         </div>
-
-        {/* Asset Register Section */}
         <div className="asset-register-container">
           <div className="asset-section-title">Asset Register</div>
-          
           <div className="asset-table-wrapper">
             <table className="asset-table">
               <thead>
@@ -135,7 +122,7 @@ const Dashboard = () => {
               <tbody>
                 {loading ? (
                   <tr>
-                    <td colSpan="9" style={{ padding: '40px', textAlign: 'center', color: '#45556C' }}>Loading assets...</td>
+                    <td colSpan="9" className="asset-loading-row">Loading assets...</td>
                   </tr>
                 ) : assets.map(asset => (
                   <tr key={asset.id} className="asset-row">
@@ -178,10 +165,14 @@ const Dashboard = () => {
                     </td>
                     <td>
                       <div className="action-cell">
-                        <button className="btn-tool" aria-label="Settings" onClick={() => addToast("Asset Updated Successfully", "success")}>
+                        <button 
+                          type="button"
+                          className="btn-tool" 
+                          aria-label="Settings" 
+                          onClick={() => addToast("Asset Updated Successfully", "success")}>
                           <FiTool size={16} />
                         </button>
-                        <button className="btn-view">View</button>
+                        <button type="button" className="btn-view">View</button>
                       </div>
                     </td>
                   </tr>
@@ -190,14 +181,11 @@ const Dashboard = () => {
             </table>
           </div>
         </div>
-
-        {/* Upcoming Maintenance Schedule Section */}
         <div className="asset-maintenance-container">
           <div className="asset-section-title">Upcoming Maintenance Schedule</div>
-          
           <div className="maintenance-list">
             {loading ? (
-              <div style={{ padding: '20px', textAlign: 'center', color: '#45556C' }}>Loading schedule...</div>
+              <div className="asset-loading-schedule">Loading schedule...</div>
             ) : maintenance.map(task => (
               <div key={task.id} className="maintenance-card">
                 <div className="maintenance-info">
@@ -211,25 +199,25 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-                <button className="btn-schedule" onClick={() => addToast("Maintenance Scheduled Successfully", "success")}>Schedule Service</button>
+                <button 
+                  type="button"
+                  className="btn-schedule" 
+                  onClick={() => addToast("Maintenance Scheduled Successfully", "success")}>
+                  Schedule Service
+                </button>
               </div>
             ))}
           </div>
         </div>
-
       </div>
-      
       <RegisterAssetModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
         onSuccess={() => {
           addToast("Asset Registered Successfully", "success");
           loadData();
-        }}
-      />
-
+        }}/>
     </div>
   );
 };
-
 export default Dashboard;

@@ -3,7 +3,7 @@ export const COLORS = {
   cardBackground: '#FFFFFF',
   border: '#E2E8F0',
   success: '#008236',
-  danger: '#EF4444', // Approximated from typical enterprise danger, though not explicitly provided
+  danger: '#EF4444',
   warning: '#F59E0B',
   info: '#3B82F6',
   primary: '#0d6efd',

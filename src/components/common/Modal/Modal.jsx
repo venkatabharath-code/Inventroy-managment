@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 import './Modal.css';
-
 const Modal = ({ isOpen, onClose, title, children, footer }) => {
   // Escape key to close
   useEffect(() => {
@@ -12,9 +11,7 @@ const Modal = ({ isOpen, onClose, title, children, footer }) => {
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
-
   if (!isOpen) return null;
-
   return (
     <div className="custom-modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-label={title}>
       <div className="custom-modal-content" onClick={e => e.stopPropagation()}>
@@ -36,5 +33,4 @@ const Modal = ({ isOpen, onClose, title, children, footer }) => {
     </div>
   );
 };
-
 export default Modal;

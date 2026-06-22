@@ -1,18 +1,10 @@
-/* Override Bootstrap styles that interfere with our strict pixel-perfect design */
-
 .container,
 .container-fluid {
   padding: 0;
 }
-
 .row {
   margin: 0;
 }
-
 .col, [class*="col-"] {
   padding: 0;
 }
-
-/* We don't want bootstrap to style our custom cards or buttons implicitly, 
-   we will create specific component CSS for them, but just in case we use 
-   utility classes, we want them to respect our variables */
