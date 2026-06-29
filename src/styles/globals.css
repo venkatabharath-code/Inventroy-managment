@@ -5,7 +5,7 @@
   padding: 0;
 }
 body {
-  font-family: var(--font-family-main);
+  font-family: "Google Sans", sans-serif !important;
   background-color: var(--bg-main);
   color: var(--text-body);
   overflow-x: hidden;
