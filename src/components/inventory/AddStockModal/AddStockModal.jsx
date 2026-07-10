@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 import { inventoryService } from '../../../services/inventoryService';
-import { useToast } from '../../../context/ToastContext';
 import './AddStockModal.css';
 const initialFormData = {
   itemName: '',
   category: '',
-  sku: 'SKU-1001', // auto-generated
+  sku: 'SKU-1001',
   batchNumber: '',
   expiryDate: '',
   initialQuantity: '',
@@ -16,8 +15,7 @@ const initialFormData = {
   storageLocation: '',
   shelfBin: ''
 };
-const AddStockModal = ({ isOpen, onClose, onSuccess }) => {
-  const { addToast } = useToast();
+const AddStockModal = ({ isOpen, onClose, onSuccess, addToast }) => {
   const [formData, setFormData] = useState(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   // Escape key to close modal

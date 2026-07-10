@@ -1,104 +1,6 @@
-import { stockAlerts, recentMovements } from '../data/mockData';
-export const initialStockData = [
-  {
-    id: 1,
-    name: 'Paracetamol 500mg',
-    sku: 'INV001',
-    category: 'Medicine',
-    currentStock: '5000 tablets',
-    currentStockClass: 'text-success',
-    minStock: '2000 tablets',
-    expiryDate: '2027-06-15',
-    expiryDateClass: 'text-normal',
-    location: 'Pharmacy - Shelf A3',
-    status: 'in-stock',
-    statusLabel: 'in-stock'
-  },
-  {
-    id: 2,
-    name: 'Insulin Glargine 100U/ml',
-    sku: 'INV002',
-    category: 'Medicine',
-    currentStock: '450 vials',
-    currentStockClass: 'text-warning',
-    minStock: '500 vials',
-    expiryDate: '2026-03-20',
-    expiryDateClass: 'text-normal',
-    location: 'Pharmacy - Refrigerator B',
-    status: 'low-stock',
-    statusLabel: 'low-stock'
-  },
-  {
-    id: 3,
-    name: 'Surgical Gloves (Medium)',
-    sku: 'INV003',
-    category: 'Consumable',
-    currentStock: '150 boxes',
-    currentStockClass: 'text-warning',
-    minStock: '500 boxes',
-    expiryDate: 'N/A',
-    expiryDateClass: 'text-normal',
-    location: 'Storage - Section C',
-    status: 'low-stock',
-    statusLabel: 'low-stock'
-  },
-  {
-    id: 4,
-    name: 'Amoxicillin 250mg',
-    sku: 'INV004',
-    category: 'Medicine',
-    currentStock: '0 capsules',
-    currentStockClass: 'text-critical',
-    minStock: '1000 capsules',
-    expiryDate: 'N/A',
-    expiryDateClass: 'text-normal',
-    location: 'Pharmacy - Shelf B1',
-    status: 'out-of-stock',
-    statusLabel: 'out-of-stock'
-  },
-  {
-    id: 5,
-    name: 'ECG Machine Electrodes',
-    sku: 'INV005',
-    category: 'Equipment',
-    currentStock: '800 pieces',
-    currentStockClass: 'text-success',
-    minStock: '200 pieces',
-    expiryDate: 'N/A',
-    expiryDateClass: 'text-normal',
-    location: 'Equipment Room 2',
-    status: 'in-stock',
-    statusLabel: 'in-stock'
-  },
-  {
-    id: 6,
-    name: 'IV Fluid - Normal Saline 500ml',
-    sku: 'INV006',
-    category: 'Consumable',
-    currentStock: '300 bags',
-    currentStockClass: 'text-warning',
-    minStock: '1000 bags',
-    expiryDate: '2026-02-10',
-    expiryDateClass: 'text-critical',
-    location: 'Storage - Section A',
-    status: 'expiring-soon',
-    statusLabel: 'expiring-soon'
-  },
-  {
-    id: 7,
-    name: 'Surgical Suture Kit',
-    sku: 'INV007',
-    category: 'Surgical',
-    currentStock: '250 kits',
-    currentStockClass: 'text-success',
-    minStock: '100 kits',
-    expiryDate: 'N/A',
-    expiryDateClass: 'text-normal',
-    location: 'OR Storage',
-    status: 'in-stock',
-    statusLabel: 'in-stock'
-  }
-];
+import { initialStockData } from '../data/inventory/statCard.data';
+import { stockAlerts } from '../data/inventory/alertCard.data';
+import { recentMovements } from '../data/inventory/recentMovements.data';
 const STOCK_STORAGE_KEY = 'inventory_stock_data';
 const MOVEMENTS_STORAGE_KEY = 'inventory_movements_data';
 function safeParseStorage(key) {
@@ -131,7 +33,6 @@ export const inventoryService = {
   async addStockItem(item) {
     await this.delay();
     const items = await this.getStockItems();
-    //  placeholder
     const uniqueSKU = (item.sku && item.sku !== 'SKU-1001') ? item.sku : generateSKU(items);
     const newItem = {
       ...item,

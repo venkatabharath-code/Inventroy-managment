@@ -1,14 +1,15 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import PageTitle from '../../../components/common/PageTitle/PageTitle';
-import Button from '../../../components/common/Button/Button';
-import DataTable from '../../../components/common/DataTable/DataTable';
+import PageTitle from '../../../components/PageTitle/PageTitle';
+import Button from '../../../common/Button/Button';
+import DataTable from '../../../common/DataTable/DataTable';
 import { RiSearchLine, RiFileTextLine, RiAddLine } from 'react-icons/ri';
 import AddStockModal from '../../../components/inventory/AddStockModal/AddStockModal';
-import { inventoryService, initialStockData } from '../../../services/inventoryService';
-import { useToast } from '../../../context/ToastContext';
+import { inventoryService } from '../../../services/inventoryService';
+import { initialStockData } from '../../../data/inventory/statCard.data';
+import { useToast } from '../../../components/Toast/Toast';
 import './StockManagement.css';
 const StockManagement = () => {
-  const { addToast } = useToast();
+  const { addToast, ToastUI } = useToast();
   const [activeTab, setActiveTab] = useState('all');
   const [items, setItems] = useState(initialStockData);
   const [searchQuery, setSearchQuery] = useState('');
@@ -197,7 +198,8 @@ const StockManagement = () => {
           loadItems();
           addToast('Stock Added Successfully', 'success');
         }}
-      />
+       addToast={addToast} />
+      <ToastUI />
     </div>
   );
 };

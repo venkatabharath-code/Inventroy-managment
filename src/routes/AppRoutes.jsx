@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { routes } from './routeConfig';
 import DashboardLayout from '../layouts/DashboardLayout/DashboardLayout';
-import Loader from '../components/common/Loader/Loader';
+import Loader from '../common/Loader/Loader';
 const renderRoutes = (routesArr) => {
   return routesArr.map((route, index) => {
     if (route.redirectTo) {

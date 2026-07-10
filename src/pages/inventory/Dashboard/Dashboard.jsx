@@ -4,16 +4,16 @@ import AlertCard from '../../../components/inventory/AlertCard/AlertCard';
 import CategoryCard from '../../../components/inventory/CategoryCard/CategoryCard';
 import RecentMovements from '../../../components/inventory/RecentMovements/RecentMovements';
 import { inventoryService } from '../../../services/inventoryService';
-import Button from '../../../components/common/Button/Button';
-import Card from '../../../components/common/Card/Card';
-import PageTitle from '../../../components/common/PageTitle/PageTitle';
+import Button from '../../../common/Button/Button';
+import Card from '../../../components/Card/Card';
+import PageTitle from '../../../components/PageTitle/PageTitle';
 import AddStockModal from '../../../components/inventory/AddStockModal/AddStockModal';
 import InventorySettingsModal from '../../../components/inventory/InventorySettingsModal/InventorySettingsModal';
-import { useToast } from '../../../context/ToastContext';
+import { useToast } from '../../../components/Toast/Toast';
 import { RiSettings3Line, RiAddLine } from 'react-icons/ri';
 import './Dashboard.css';
 const Dashboard = () => {
-  const { addToast } = useToast();
+  const { addToast, ToastUI } = useToast();
   const [isAddStockModalOpen, setIsAddStockModalOpen] = useState(false);
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [stats, setStats] = useState([]);
@@ -41,7 +41,7 @@ const Dashboard = () => {
     }
   };
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     loadDashboardData();
   }, []);
   const headerActions = (
@@ -91,7 +91,7 @@ const Dashboard = () => {
         ))}
       </div>
       <div className="category-section">
-        <Card noPadding={false}>
+        <Card>
           <h5 className="section-title category-title">Stock by Category</h5>
           <div className="category-row">
             {categories.map(category => (
@@ -106,7 +106,7 @@ const Dashboard = () => {
         </Card>
         <div className="movements-section">
           <h3 className="section-title">Recent Stock Movements</h3>
-          <Card padding="0">
+          <Card>
             <RecentMovements data={movements} />
           </Card>
         </div>
@@ -117,13 +117,14 @@ const Dashboard = () => {
         onSuccess={() => {
           loadDashboardData();
           addToast('Stock Added Successfully', 'success');
-        }}/>
+        }} addToast={addToast} />
       <InventorySettingsModal
         isOpen={isSettingsModalOpen}
         onClose={() => setIsSettingsModalOpen(false)}
         onSuccess={() => {
           addToast('Settings Saved Successfully', 'success');
-        }}/>
+        }} addToast={addToast} />
+      <ToastUI />
     </div>
   );
 };

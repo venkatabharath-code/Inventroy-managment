@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../../common/Card/Card';
-import Button from '../../common/Button/Button';
+import Card from '../../../components/Card/Card';
+import Button from '../../../common/Button/Button';
 import { RiAlertLine, RiTimeLine } from 'react-icons/ri';
 import './AlertCard.css';
 const AlertCard = ({ title, items, type }) => {

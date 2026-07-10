@@ -1,6 +1,6 @@
-import Card from '../../common/Card/Card';
-import DataTable from '../../common/DataTable/DataTable';
-import StatusBadge from '../../common/StatusBadge/StatusBadge';
+import Card from '../../../components/Card/Card';
+import DataTable from '../../../common/DataTable/DataTable';
+import StatusBadge from '../../../components/StatusBadge/StatusBadge';
 import './RecentMovements.css';
 const columns = [
   { field: 'dateTime', header: 'Date/Time', width: '15%' },

@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 import { settingsService } from '../../../services/settingsService';
-import { useToast } from '../../../context/ToastContext';
 import './InventorySettingsModal.css';
-const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
-  const { addToast } = useToast();
+const InventorySettingsModal = ({ isOpen, onClose, onSuccess, addToast }) => {
   const [formData, setFormData] = useState({
     lowStockEmailAlerts: true,
     expiryAlerts: true,
@@ -29,9 +27,9 @@ const InventorySettingsModal = ({ isOpen, onClose, onSuccess }) => {
       console.error('Failed to load settings:', error);
     }
   };
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
-      // eslint-disable-next-line 
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       loadSettings();
     }
   }, [isOpen]);

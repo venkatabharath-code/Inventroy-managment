@@ -1,0 +1,86 @@
+/* =========================================
+   VARIABLES
+   ========================================= */
+:root {
+  /* Backgrounds & Borders */
+  --bg-main: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --border-color: #E2E8F0;
+  /* Theme Colors */
+  --color-primary: #00A6F4;
+  --color-primary-hover: #008AE6;
+  --color-success: #008236;
+  --color-success-bg: #E6F3EA;
+  --color-danger: #EF4444;
+  --color-danger-bg: #FEE2E2;
+  --color-warning: #F59E0B;
+  --color-warning-bg: #FEF3C7;
+  --color-info: #3B82F6;
+  --color-info-bg: #DBEAFE;
+  /* Typography */
+  --text-main: #0F172B;
+  --text-body: #314158;
+  --text-muted: #64748b;
+  --font-base: "Google Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  /* Layout */
+  --dashboard-max-width: 1526px;
+  --sidebar-width: 256px;
+  --header-height: 64px;
+  /* Components */
+  --stat-card-min-width: 250px;
+  --category-card-min-width: 200px;
+  --border-radius-card: 16.4px;
+  --border-radius-sm: 8px;
+}
+
+/* =========================================
+   BOOTSTRAP OVERRIDES
+   ========================================= */
+.container,
+.container-fluid {
+  padding: 0;
+}
+.row {
+  margin: 0;
+}
+.col, [class*="col-"] {
+  padding: 0;
+}
+
+/* =========================================
+   GLOBAL STYLES
+   ========================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: var(--font-base) !important;
+  background-color: var(--bg-main);
+  color: var(--text-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-main);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
